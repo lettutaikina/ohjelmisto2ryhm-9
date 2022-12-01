@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+          integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+          crossorigin=""/>
     <link href="css/looks.css" rel="stylesheet">
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" defer></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+            integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+            crossorigin="" defer></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js" defer></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js" defer></script>
     <script src="js/jaavaa.js" defer></script>
@@ -15,135 +19,137 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="page-header">
-            <h1 class="page-title">
-                <ion-icon name="airplane-outline"></ion-icon>&nbsp;Top&nbsp;Gun&nbsp;<ion-icon name="airplane-outline"></ion-icon>
-            </h1>
+<div class="container">
+    <header class="page-header">
+        <h1 class="page-title">
+            <ion-icon name="airplane-outline"></ion-icon>&nbsp;Top&nbsp;Gun&nbsp;<ion-icon
+                name="airplane-outline"></ion-icon>
+        </h1>
 
-            <nav>
-                <ul class="flex-wrap space-evenly">
+        <nav>
+            <ul class="flex-wrap space-evenly">
+                <li>
+                    <a class="button button-white" href="#">Game</a>
+                </li>
+                <li>
+                    <a class="button button-white" href="#">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="flex-wrap">
+        <section class="box">
+            <header>
+                <h2>Game Status</h2>
+            </header>
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <h3 id="player-name">Player Name</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CO2 Consumed: <span id="consumed">999</span>kg</td>
+                    <td>CO2 Budget: <span id="budget">9999</span>kg</td>
+                </tr>
+            </table>
+        </section>
+        <div id="map">
+            <!-- <img class="responsive-img" src="img/finland.svg" alt="map of finland"> -->
+        </div>
+        <div class="boxes">
+            <section class="box">
+                <header>
+                    <h2 id="airport-name">Airport name</h2>
+                </header>
+                <table id="weather">
+                    <tr>
+                        <td>Temperature</td>
+                        <td>
+                            <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                 alt="Current weather">
+                        </td>
+                        <td>Wind</td>
+                    </tr>
+                    <tr>
+                        <td id="airport-temp">10°C</td>
+                        <td id="airport-conditions">Cloudy</td>
+                        <td id="airport-wind">40m/s</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="box">
+                <header>
+                    <h2>Goals</h2>
+                </header>
+                <ul id="goals" class="flex-wrap">
                     <li>
-                        <a class="button button-white" href="#">Game</a>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
                     </li>
                     <li>
-                        <a class="button button-white" href="#">About</a>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
+                    </li>
+                    <li class="done">
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
+                            <figcaption>Temperature over +25°C</figcaption>
+                        </figure>
                     </li>
                 </ul>
-            </nav>
-        </header>
-
-        <main class="flex-wrap">
-            <section class="box">
-                    <header>
-                        <h2>Game Status</h2>
-                    </header>
-                    <table>
-                        <tr>
-                            <td colspan="2">
-                                <h3 id="player-name">Player Name</h3>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>CO2 Consumed: <span id="consumed">999</span>kg</td>
-                            <td>CO2 Budget: <span id="budget">9999</span>kg</td>
-                        </tr>
-                    </table>
-                </section>
-            <div id="map">
-                <!-- <img class="responsive-img" src="img/finland.svg" alt="map of finland"> -->
-            </div>
-            <div class="boxes">
-                <section class="box">
-                    <header>
-                        <h2 id="airport-name">Airport name</h2>
-                    </header>
-                    <table id="weather">
-                        <tr>
-                            <td>Temperature</td>
-                            <td>
-                                <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Current weather">
-                            </td>
-                            <td>Wind</td>
-                        </tr>
-                        <tr>
-                            <td id="airport-temp">10°C</td>
-                            <td id="airport-conditions">Cloudy</td>
-                            <td id="airport-wind">40m/s</td>
-                        </tr>
-                    </table>
-                </section>
-                <section class="box">
-                    <header>
-                        <h2>Goals</h2>
-                    </header>
-                    <ul id="goals" class="flex-wrap">
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li class="done">
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                        <li>
-                            <figure>
-                                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="Goal weather icon">
-                                <figcaption>Temperature over +25°C</figcaption>
-                            </figure>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </main>
-        <div class="goal hide">
-            <h2>Goal</h2>
-            <p>
-                <span id="goal-txt">Goals reached!!</span>
-            </p>
+            </section>
         </div>
+    </main>
+    <div class="goal hide">
+        <h2>Goal</h2>
+        <p>
+            <span id="goal-txt">Goals reached!!</span>
+        </p>
     </div>
+</div>
 
-    <div id="player-modal">
-        <form id="player-form">
-            <input id="player-input" type="text" placeholder="Player name" required>
-            <input type="submit" value="Start game">
-        </form>
-    </div>
+<div id="player-modal">
+    <form id="player-form">
+        <input id="player-input" type="text" placeholder="Player name" required>
+        <input type="submit" value="Start game">
+    </form>
+</div>
 
 </body>
 
