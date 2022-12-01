@@ -207,12 +207,12 @@ main {
   }
 
   #map {
-    width: 40%;
-    height: initial;
+    width: 50%;
+    height: 800px;
   }
 
   .boxes {
-    width: 60%;
+    width: 20%;
     padding-left: 1rem;
     box-sizing: border-box;
   }
