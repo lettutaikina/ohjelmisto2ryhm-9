@@ -126,6 +126,21 @@ async function gameSetup(url) {
         const p = document.createElement('p');
         p.innerHTML = `Distance ${airport.distance}km`;
         popupContent.append(p);
+
+        // Weather icon and description on destinations (Max)
+
+        const figure = document.createElement('figure');
+        const img = document.createElement('img');
+        img.src = airport.weather.icon;
+        img.alt = "Marker weather icon";
+        const figcaption = document.createElement('figcaption');
+        figcaption.innerHTML = airport.weather.description;
+        figure.appendChild(img);
+        figure.appendChild(figcaption);
+        popupContent.append(figure);
+
+        //
+
         marker.bindPopup(popupContent);
         goButton.addEventListener('click', function () {
           gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.co2_consumption}`);
