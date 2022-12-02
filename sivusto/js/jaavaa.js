@@ -6,7 +6,7 @@ L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
   attribution: 'Stamen',
   maxZoom: 10,
 }).addTo(map);
-map.setView([60, 24], 7);
+map.setView([60, 24], 4);
 
 // global variables
 const apiUrl = 'http://127.0.0.1:5000/';
@@ -119,7 +119,7 @@ async function gameSetup(url) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
       airportMarkers.addLayer(marker);
       if (airport.active) {
-        map.flyTo([airport.latitude, airport.longitude], 10);
+        map.flyTo([airport.latitude, airport.longitude], 5);
         showWeather(airport);
         /*checkGoals(airport.weather.meets_goals);*/
         marker.bindPopup(`You are here: <b>${airport.name}</b>`);
