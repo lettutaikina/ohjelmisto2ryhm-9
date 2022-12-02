@@ -9,8 +9,8 @@ co2_per_flight = 50
 co2_per_km = 1
 
 
-default_starting_point = "EFKE"
-default_name = "Anna"
+default_starting_point = "EFRO"
+default_name = "DDK"
 
 # Internal shared variables -- do not modify
 conn = None
