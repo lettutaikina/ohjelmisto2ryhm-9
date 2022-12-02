@@ -39,6 +39,7 @@ class Airport:
         sql += str(self.latitude - config.max_lat_dist) + " AND " + str(self.latitude + config.max_lat_dist)
         sql += " AND longitude_deg BETWEEN "
         sql += str(self.longitude - config.max_lon_dist) + " AND " + str(self.longitude + config.max_lon_dist)
+        sql += "and type = 'large_airport'"
         print(sql)
         cur = config.conn.cursor()
         cur.execute(sql)
