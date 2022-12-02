@@ -1,0 +1,73 @@
+CREATE DATABASE projekt2;
+USE projekt2;
+drop table if exists `country`;
+CREATE TABLE `country` (
+	`id` int(11),
+	`iso_country` varchar(40) NOT NULL,
+	`name` varchar(40) DEFAULT NULL,
+	`continent` varchar(40) DEFAULT NULL,
+	`wikipedia_link` varchar(40) DEFAULT NULL,
+	`keywords` varchar(40) DEFAULT NULL,
+	PRIMARY KEY (`iso_country`)
+);
+
+drop table if exists `airport`;
+CREATE TABLE `airport` (
+	`id` int(11) NOT NULL,
+	`ident` varchar(40) DEFAULT NULL,
+	`type` varchar(40) DEFAULT NULL,
+	`name` varchar(40) DEFAULT NULL,
+	`latitude_deg` DOUBLE DEFAULT NULL,
+	`longitude_deg` DOUBLE DEFAULT NULL,
+	`elevation_ft` int(11) DEFAULT NULL,
+	`continent` varchar(40) DEFAULT NULL,
+	`iso_country` varchar(40) DEFAULT NULL,
+	`iso_region` varchar(40) DEFAULT NULL,
+	`municipality` varchar(40) DEFAULT NULL,
+	`scheduled_service` varchar(40) DEFAULT NULL,
+	`gps_code` varchar(40) DEFAULT NULL,
+	`iata_code` varchar(40) DEFAULT NULL,
+	`local_code` varchar(40) DEFAULT NULL,
+	`home_link` varchar(40) DEFAULT NULL,
+	`wikipedia_link` varchar(40) DEFAULT NULL,
+	`keywords` VARCHAR(40) DEFAULT NULL,
+	PRIMARY KEY (`ident`),
+	FOREIGN KEY (`iso_country`) REFERENCES `country` (`iso_country`)
+);
+
+
+DROP TABLE IF EXISTS `game`;
+CREATE TABLE `game` (
+	`id` varchar(40) NOT NULL,
+	`co2_consumed` int(8) DEFAULT NULL,
+	`co2_budget` int(8) DEFAULT NULL,
+	`location` VARCHAR(10) DEFAULT NULL,
+	`screen_name` varchar(40) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`location`) REFERENCES `airport` (`ident`)
+);
+
+DROP TABLE IF EXISTS `goal_reached`;
+CREATE TABLE `goal_reached` (
+	`game_id` VARCHAR(40) NOT NULL,
+	`iso_country` varchar(8) NOT NULL,
+	PRIMARY KEY (`game_id`,`iso_country`),
+	FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
+	FOREIGN KEY (`iso_country`) REFERENCES `country` (`iso_country`)
+);
+
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Program Files\\MariaDB 10.8\\data\\flight_game\\cvs\\countries.csv'
+INTO TABLE country
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Program Files\\MariaDB 10.8\\data\\flight_game\\cvs\\airports.csv'
+INTO TABLE airport
+CHARACTER SET utf8mb4
+FIELDS TERMINATED BY ','
+OPTIONALLY ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
