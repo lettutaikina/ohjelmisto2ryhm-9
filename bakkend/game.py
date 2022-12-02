@@ -7,7 +7,6 @@ class Game:
     def __init__(self, id, loc, consumption, player=None):
         self.status = {}
         self.location = []
-        self.goals = []
 
         if id==0:
             # new game
