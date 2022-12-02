@@ -34,6 +34,12 @@ def fly(id, dest, consumption=0, player=None):
     nearby = game.location[0].find_nearby_airports()
     for a in nearby:
         game.location.append(a)
+
+    # Gets weather data for each location
+
+    for i in range(1, len(game.location)):
+        game.location[i].fetchWeather(game)
+        #print(i)
     json_data = json.dumps(game, default=lambda o: o.__dict__, indent=4)
     return json_data
 
