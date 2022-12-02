@@ -7,13 +7,10 @@ class Game:
     def __init__(self, id, loc, consumption, player=None):
         self.status = {}
         self.location = []
-        self.goals = []
 
         if id==0:
-            # new game
-            # Create new game id
             letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
-
+            #strong id for new players
             self.status = {
                 "id" : ''.join(random.choice(letters) for i in range(20)),
                 "name" : player,
@@ -24,18 +21,13 @@ class Game:
                 "previous_location" : ""
             }
 
-
-            #self.id = ''.join(random.choice(letters) for i in range(20))
-            #self.footprint = config.initial_footprint
+            #lisätään uusi peli tietokantaan
             self.location.append(Airport(loc, True))
-            #self.player = player
-            # Insert new game into DB
             sql = "INSERT INTO Game VALUES ('" + self.status["id"] + "', " + str(self.status["co2"]["consumed"])
             sql += ", " + str(self.status["co2"]["budget"]) + ", '" + loc + "', '" + self.status["name"] + "')"
             print(sql)
             cur = config.conn.cursor()
             cur.execute(sql)
-            #config.conn.commit()
 
         else:
             #update consumption and budget
