@@ -8,6 +8,7 @@ from flask_cors import CORS
 
 import config
 from game import Game
+from airport import Airport
 
 load_dotenv()
 
@@ -25,7 +26,7 @@ config.conn = mysql.connector.connect(
          autocommit=True
          )
 
-def fly(id, dest, consumption=0, player=None):
+def fly(id, dest, consumption=0, player=None, focus=None):
     if id==0:
         game = Game(0, dest, consumption, player)
     else:
@@ -34,12 +35,6 @@ def fly(id, dest, consumption=0, player=None):
     nearby = game.location[0].find_nearby_airports()
     for a in nearby:
         game.location.append(a)
-
-    # Gets weather data for each location
-
-    for i in range(1, len(game.location)):
-        game.location[i].fetchWeather(game)
-        #print(i)
     json_data = json.dumps(game, default=lambda o: o.__dict__, indent=4)
     return json_data
 
@@ -63,6 +58,20 @@ def newgame():
     player = args.get("player")
     dest = args.get("loc")
     json_data = fly(0, dest, 0, player)
+    return json_data
+
+# Added new app.route for fetching weather data for desired destinations (Max)
+
+# http://127.0.0.1:5000/icondata?icon=<ident>
+@app.route('/icondata')
+def icondata():
+    args = request.args
+    icon = args.get("icon")
+    airport = Airport(icon)
+    airport.fetchWeather(airport)
+    print("*** Called icon endpoint ***")
+    json_data = json.dumps(airport, default=lambda o: o.__dict__, indent=4)
+    # print(json_data)
     return json_data
 
 if __name__ == '__main__':

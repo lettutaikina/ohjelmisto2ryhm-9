@@ -50,16 +50,19 @@ function showWeather(airport) {
   document.querySelector('#airport-wind').innerHTML = `${airport.weather.wind.speed}m/s`;
 }
 
-function showWeatherOnIcon(airport) {
-          const figure = document.createElement('figure');
+async function showWeatherOnIcon(airport) {
+
+        const iconData = await getData(`${apiUrl}icondata?icon=${airport.ident}`)
+        console.log(iconData);
+        const figure = document.createElement('figure');
         const img = document.createElement('img');
-        img.src = airport.weather.icon;
+        img.src = iconData.weather.icon;
         img.alt = "Marker weather icon";
         const figcaption = document.createElement('figcaption');
-        figcaption.innerHTML = airport.weather.description;
+        figcaption.innerHTML = iconData.weather.description;
         figure.appendChild(img);
         figure.appendChild(figcaption);
-        return figure
+        return figure;
 }
 
 // function to check if any goals have been reached
@@ -141,11 +144,17 @@ async function gameSetup(url) {
 
         // Weather icon and description on destinations (Max)
 
-        popupContent.append(showWeatherOnIcon(airport));
+        async function weather(){
+          popupContent.append(await showWeatherOnIcon(airport));
+          this.removeEventListener('click', weather);
+        }
+
+        marker.addEventListener('click', weather);
 
         //
 
         marker.bindPopup(popupContent);
+
         goButton.addEventListener('click', function () {
           gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.co2_consumption}`);
         });
