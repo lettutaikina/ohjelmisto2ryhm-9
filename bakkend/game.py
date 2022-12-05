@@ -72,7 +72,7 @@ class Game:
         cur2 = config.conn.cursor()
         cur2.execute(sql2)
 
-        sql3 = "SELECT Count(*) AS kaydytmaat FROM (SELECT DISTINCT iso_country FROM goal_reached WHERE game_id= self.status["id"])"
+        sql3 = "SELECT Count(*) AS kaydytmaat FROM (SELECT DISTINCT iso_country FROM goal_reached WHERE game_id='" + self.status["id"] + "')"
         print(sql3)
         cur3 = config.conn.cursor()
         cur3.execute(sql3)
