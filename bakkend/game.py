@@ -69,10 +69,13 @@ class Game:
         #sql2 = "INSERT INTO goal_reached(iso_country) VALUES ('" + sijainti.iso_country + "')"
         sql2 = "INSERT INTO goal_reached VALUES ('" + self.status["id"] + "', '" + sijainti.iso_country + "')"
         print(sql2)
-        cur = config.conn.cursor()
-        cur.execute(sql2)
+        cur2 = config.conn.cursor()
+        cur2.execute(sql2)
 
-        #sql3="SELECT Count(*) AS kaydytmaat FROM (SELECT DISTINCT iso_country FROM goal_reached);"
-        #print(kaydytmaat)
+        sql3 = "SELECT Count(*) AS kaydytmaat FROM (SELECT DISTINCT iso_country FROM goal_reached WHERE game_id= self.status["id"])"
+        print(sql3)
+        cur3 = config.conn.cursor()
+        cur3.execute(sql3)
+
         #config.conn.commit()
         #self.loc = sijainti.ident
