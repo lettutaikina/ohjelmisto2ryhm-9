@@ -70,7 +70,7 @@ class Game:
         print(sql2)
         cur = config.conn.cursor()
         cur.execute(sql2)
-        #sql3="SELECT Count(*) AS Distinctcountrie FROM (SELECT DISTINCT Country FROM Customers);"
-        #print(Distinctcountrie)
+        #sql3="SELECT Count(*) AS Distinctcountries FROM (SELECT DISTINCT Country FROM Customers);"
+        #print(Distinctcountries)
         #config.conn.commit()
         #self.loc = sijainti.ident
