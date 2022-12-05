@@ -7,6 +7,7 @@ class Game:
     def __init__(self, id, loc, consumption, player=None):
         self.status = {}
         self.location = []
+        self.visited = 0
         self.goal = False
 
         if id==0:
@@ -80,6 +81,7 @@ class Game:
         res = cur3.fetchall()
         if len(res) == 1:
             print(res[0][0])
+            self.visited = res[0][0]
             if res[0][0] >= 10:
                 self.goal = True
 

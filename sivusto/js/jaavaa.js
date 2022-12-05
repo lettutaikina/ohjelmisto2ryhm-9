@@ -36,9 +36,10 @@ async function getData(url) {
 
 // function to update game status
 function updateStatus(status) {
-  document.querySelector('#player-name').innerHTML = `Player: ${status.name}`;
-  document.querySelector('#consumed').innerHTML = status.co2.consumed;
-  document.querySelector('#budget').innerHTML = status.co2.budget;
+  document.querySelector('#player-name').innerHTML = `Player: ${status.status.name}`;
+  document.querySelector('#visited').innerHTML = `${status.visited}/10`;
+  document.querySelector('#consumed').innerHTML = status.status.co2.consumed;
+  document.querySelector('#budget').innerHTML = status.status.co2.budget;
 }
 
 // function to show weather at selected airport
@@ -101,7 +102,6 @@ function updateGoals(goals) {
 
 // function to check if game is over
 function checkGameOver(gamedata) {
-
   if (gamedata.goal) {
     alert(`You've won!`);
     return false;
@@ -121,7 +121,7 @@ async function gameSetup(url) {
     airportMarkers.clearLayers();
     const gameData = await getData(url);
     console.log(gameData);
-    updateStatus(gameData.status);
+    updateStatus(gameData);
     if (!checkGameOver(gameData)) return;
     for (let airport of gameData.location) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
@@ -137,14 +137,14 @@ async function gameSetup(url) {
         marker.setIcon(blueIcon);
         const popupContent = document.createElement('div');
         const h4 = document.createElement('h4');
-        h4.innerHTML = airport.name;
+        h4.innerText = airport.name;
         popupContent.append(h4);
         const goButton = document.createElement('button');
         goButton.classList.add('button');
-        goButton.innerHTML = 'Fly here';
+        goButton.innerText = 'Fly here';
         popupContent.append(goButton);
         const p = document.createElement('p');
-        p.innerHTML = `Distance ${airport.distance}km`;
+        p.innerText = `Distance ${airport.distance}km`;
         popupContent.append(p);
 
         // Weather icon and description on destinations (Max)
