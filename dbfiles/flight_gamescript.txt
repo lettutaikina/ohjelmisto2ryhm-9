@@ -9,7 +9,7 @@ CREATE TABLE `country` (
 	`wikipedia_link` varchar(40) DEFAULT NULL,
 	`keywords` varchar(40) DEFAULT NULL,
 	PRIMARY KEY (`iso_country`)
-);
+) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
 
 drop table if exists `airport`;
 CREATE TABLE `airport` (
@@ -33,7 +33,7 @@ CREATE TABLE `airport` (
 	`keywords` VARCHAR(40) DEFAULT NULL,
 	PRIMARY KEY (`ident`),
 	FOREIGN KEY (`iso_country`) REFERENCES `country` (`iso_country`)
-);
+) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
 DROP TABLE IF EXISTS `game`;
@@ -45,15 +45,15 @@ CREATE TABLE `game` (
 	`screen_name` varchar(40) DEFAULT NULL,
 	PRIMARY KEY (`id`),
 	FOREIGN KEY (`location`) REFERENCES `airport` (`ident`)
-);
+) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
 
 DROP TABLE IF EXISTS `goal_reached`;
 CREATE TABLE `goal_reached` (
 	`game_id` VARCHAR(40) NOT NULL,
 	`iso_country` varchar(8) NOT NULL
-);
+) Engine=InnoDB DEFAULT CHARSET=utf8mb4;
 
-LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Users\\leevi\\PycharmProjects\\pythonProject\\ohjelmisto2ryhm-9\\dbfiles\\countries.csv'
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'PATH\\TO\\FILE\\countries.csv'
 INTO TABLE country
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ','
@@ -61,7 +61,7 @@ OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES;
 
-LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Users\\leevi\\PycharmProjects\\pythonProject\\ohjelmisto2ryhm-9\\dbfiles\\airports.csv'
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'PATH\\TO\\FILE\\airports.csv'
 INTO TABLE airport
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ','
