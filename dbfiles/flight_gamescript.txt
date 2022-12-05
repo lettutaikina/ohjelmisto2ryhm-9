@@ -56,7 +56,7 @@ CREATE TABLE `goal_reached` (
 	FOREIGN KEY (`iso_country`) REFERENCES `country` (`iso_country`)
 );
 
-LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Program Files\\MariaDB 10.8\\data\\flight_game\\cvs\\countries.csv'
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Users\\leevi\\PycharmProjects\\pythonProject\\ohjelmisto2ryhm-9\\dbfiles\\countries.csv'
 INTO TABLE country
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ','
@@ -64,7 +64,7 @@ OPTIONALLY ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES;
 
-LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Program Files\\MariaDB 10.8\\data\\flight_game\\cvs\\airports.csv'
+LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Users\\leevi\\PycharmProjects\\pythonProject\\ohjelmisto2ryhm-9\\dbfiles\\airports.csv'
 INTO TABLE airport
 CHARACTER SET utf8mb4
 FIELDS TERMINATED BY ','
