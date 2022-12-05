@@ -100,8 +100,13 @@ function updateGoals(goals) {
 }
 
 // function to check if game is over
-function checkGameOver(budget) {
-  if (budget <= 0) {
+function checkGameOver(gamedata) {
+
+  if (gamedata.goal) {
+    alert(`You've won!`);
+    return false;
+  }
+  if (gamedata.status.co2.budget <= 0) {
     alert(`Game Over. ${globalGoals.length} goals reached.`);
     return false;
   }
@@ -117,7 +122,7 @@ async function gameSetup(url) {
     const gameData = await getData(url);
     console.log(gameData);
     updateStatus(gameData.status);
-    if (!checkGameOver(gameData.status.co2.budget)) return;
+    if (!checkGameOver(gameData)) return;
     for (let airport of gameData.location) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
       airportMarkers.addLayer(marker);
