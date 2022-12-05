@@ -66,5 +66,9 @@ class Game:
         print(sql)
         cur = config.conn.cursor()
         cur.execute(sql)
+        sql2 =
+        print(sql2)
+        cur = config.conn.cursor()
+        cur.execute(sql2)
         #config.conn.commit()
         #self.loc = sijainti.ident
