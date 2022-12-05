@@ -7,6 +7,7 @@ class Game:
     def __init__(self, id, loc, consumption, player=None):
         self.status = {}
         self.location = []
+        self.goal = False
 
         if id==0:
             letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
@@ -72,10 +73,15 @@ class Game:
         cur2 = config.conn.cursor()
         cur2.execute(sql2)
 
-        sql3 = "SELECT Count(*) AS kaydytmaat FROM (SELECT DISTINCT iso_country FROM goal_reached WHERE game_id='" + self.status["id"] + "')"
+        sql3 = "SELECT Count(DISTINCT iso_country) FROM goal_reached WHERE game_id='" + self.status["id"] + "'"
         print(sql3)
         cur3 = config.conn.cursor()
         cur3.execute(sql3)
+        res = cur3.fetchall()
+        if len(res) == 1:
+            print(res[0][0])
+            if res[0][0] >= 10:
+                self.goal = True
 
         #config.conn.commit()
         #self.loc = sijainti.ident
