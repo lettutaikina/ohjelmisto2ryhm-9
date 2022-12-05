@@ -31,8 +31,6 @@ class Airport:
 
 
     def find_nearby_airports(self):
-        # print("Testing geopy...")
-        # self.distanceTo(1, 2)
         lista = []
         # haetaan kaikki tiedot kerralla
         sql = "SELECT ident, name, latitude_deg, longitude_deg FROM Airport WHERE latitude_deg BETWEEN "
