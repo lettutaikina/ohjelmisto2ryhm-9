@@ -166,6 +166,32 @@ async function gameSetup(url) {
   }
 }
 
+// Open modal to show guide when clicked
+const guide = document.querySelector('#guide');
+
+const dialog = document.querySelector('dialog');
+
+const span = dialog.querySelector('span');
+
+guide.addEventListener('click', openModal);
+
+function openModal() {
+  dialog.showModal();
+}
+
+window.onclick = function(event) {
+  if (event.target === guide) {
+    openModal();
+  }
+  if (event.target === dialog || event.target === span) {
+    hideModal();
+  }
+};
+
+function hideModal() {
+  dialog.close();
+}
+
 // event listener to hide goal splash
 document.querySelector('.goal').addEventListener('click', function (evt) {
   evt.currentTarget.classList.add('hide');

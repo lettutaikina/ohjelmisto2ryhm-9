@@ -24,10 +24,14 @@
                 name="airplane-outline"></ion-icon>
         </h1>
         <nav>
-            <a class="button button-white" href="#">Guide</a>
+            <a id="guide" class="button button-white" href="#">Guide</a>
         </nav>
     </header>
     <main class="flex-wrap">
+
+        <div id="map">
+            <!-- <img class="responsive-img" src="img/finland.svg" alt="map of finland"> -->
+        </div>
         <div class="boxes">
             <section class="box">
                 <header>
@@ -46,28 +50,25 @@
                 </table>
             </section>
             <section class="box">
-                <header>
-                    <h2 id="airport-name">Airport name</h2>
-                </header>
-                <table id="weather">
-                    <tr>
-                        <td>Temperature</td>
-                        <td>
-                            <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png"
-                                 alt="Current weather">
-                        </td>
-                        <td>Wind</td>
-                    </tr>
-                    <tr>
-                        <td id="airport-temp">10°C</td>
-                        <td id="airport-conditions">Cloudy</td>
-                        <td id="airport-wind">40m/s</td>
-                    </tr>
-                </table>
+                <h2 id="airport-name">Airport name</h2>
+                <div class="table-container">
+                    <table id="weather">
+                        <tr>
+                            <td>Temperature</td>
+                            <td>
+                                <img id="weather-icon" src="https://openweathermap.org/img/wn/10d@2x.png"
+                                     alt="Current weather">
+                            </td>
+                            <td>Wind</td>
+                        </tr>
+                        <tr>
+                            <td id="airport-temp">10°C</td>
+                            <td id="airport-conditions">Cloudy</td>
+                            <td id="airport-wind">40m/s</td>
+                        </tr>
+                    </table>
+                </div>
             </section>
-        </div>
-        <div id="map">
-            <!-- <img class="responsive-img" src="img/finland.svg" alt="map of finland"> -->
         </div>
     </main>
     <div class="goal hide">
@@ -83,5 +84,20 @@
         <input type="submit" value="Start game">
     </form>
 </div>
+<dialog>
+    <span>&#x2715;</span>
+    <div class="guide-wrapper">
+        <h2>Guide</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, assumenda autem corporis dignissimos est
+            expedita id in, labore maxime molestiae nam non numquam odio, quam quibusdam rem reprehenderit rerum
+            totam!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aperiam at beatae corporis deserunt dicta dolor
+            fugit libero minima nam natus neque nisi, nobis possimus sapiente sint velit veritatis voluptatem.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, explicabo maxime. A ad aspernatur
+            commodi
+            cum dolore earum error, facere in incidunt laborum mollitia, neque possimus provident quae temporibus
+            ullam.</p>
+    </div>
+</dialog>
 </body>
 </html>
