@@ -66,6 +66,9 @@ class Game:
         print(sql)
         cur = config.conn.cursor()
         cur.execute(sql)
-        sql2 = "INSERT INTO goal_reached VALUES ('" + self.status["id"] + "', " + self.iso_country["iso_country"]
+        sql2 = "INSERT INTO goal_reached VALUES ('" + sijainti.iso_country["iso_country"] + "', "
+        print(sql2)
+        cur = config.conn.cursor()
+        cur.execute(sql2)
         #config.conn.commit()
         #self.loc = sijainti.ident
