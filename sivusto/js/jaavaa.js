@@ -150,8 +150,8 @@ async function gameSetup(url) {
         // Weather icon and description on destinations (Max)
 
         async function weather(){
-          popupContent.append(await showWeatherOnIcon(airport));
           this.removeEventListener('click', weather);
+          popupContent.append(await showWeatherOnIcon(airport));
         }
 
         marker.addEventListener('click', weather);
