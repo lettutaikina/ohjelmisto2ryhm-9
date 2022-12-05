@@ -53,7 +53,6 @@ CREATE TABLE `goal_reached` (
 	`iso_country` varchar(8) NOT NULL,
 	PRIMARY KEY (`game_id`,`iso_country`),
 	FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
-	FOREIGN KEY (`iso_country`) REFERENCES `country` (`iso_country`)
 );
 
 LOAD DATA LOW_PRIORITY LOCAL INFILE 'C:\\Users\\leevi\\PycharmProjects\\pythonProject\\ohjelmisto2ryhm-9\\dbfiles\\countries.csv'
