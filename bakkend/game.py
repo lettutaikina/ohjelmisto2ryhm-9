@@ -19,8 +19,7 @@ class Game:
                 "co2" : {
                     "consumed" : config.co2_initial,
                     "budget" : config.co2_budget
-                },
-                "previous_location" : ""
+                }
             }
 
             #lisätään uusi peli tietokantaan
@@ -51,8 +50,7 @@ class Game:
                     "co2": {
                         "consumed": res[0][1],
                         "budget": res[0][2]
-                    },
-                    "previous_location" : res[0][3]
+                    }
                 }
                 # old location in DB currently not used
                 apt = Airport(loc, True)
