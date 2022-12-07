@@ -201,3 +201,9 @@ function hideModal() {
 document.querySelector('.goal').addEventListener('click', function (evt) {
   evt.currentTarget.classList.add('hide');
 });
+
+window.addEventListener("DOMContentLoaded", event => {
+  const audio = document.querySelector("audio");
+  audio.volume = 0.1;
+  audio.play();
+});
