@@ -37,7 +37,7 @@ async function getData(url) {
 // function to update game status
 function updateStatus(status) {
   document.querySelector('#player-name').innerHTML = `Player: ${status.status.name}`;
-  document.querySelector('#visited').innerHTML = `${status.visited}/10`;
+  document.querySelector('#visited').innerHTML = `${status.visited}/${status.end}`;
   document.querySelector('#consumed').innerHTML = status.status.co2.consumed;
   document.querySelector('#budget').innerHTML = status.status.co2.budget;
 }

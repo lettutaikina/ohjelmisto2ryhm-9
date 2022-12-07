@@ -11,9 +11,9 @@ co2_per_flight = 50
 #co2_if_rain = 150
 co2_per_km = 1
 
-#ei käytetä oikeesti , tulee javascriptist
-default_starting_point = "EFRO"
-default_name = "DDK"
+#goal
+goal = 10
+
 
 # Internal shared variables -- do not modify
 conn = None

@@ -8,6 +8,7 @@ class Game:
         self.status = {}
         self.location = []
         self.visited = 0
+        self.end = config.goal
         self.goal = False
 
         if id==0:
@@ -80,7 +81,7 @@ class Game:
         if len(res) == 1:
             print(res[0][0])
             self.visited = res[0][0]
-            if res[0][0] >= 10:
+            if res[0][0] >= config.goal:
                 self.goal = True
 
         #config.conn.commit()
