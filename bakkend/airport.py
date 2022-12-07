@@ -68,5 +68,19 @@ class Airport:
         return int(dist)
 
     def co2_consumption(self, km):
+
         consumption = config.co2_per_flight + km * config.co2_per_km
+        #listan sisällä main säitä
+        #crappyweather =['Rain','Drizzle','Snow','Thunderstorm']
+        #gameoverweather =['Tornado','Ash']
+
+        #if Weather(self, game) == crappyweather:
+          #  consumption = config.co2_per_rain + km * config.co2_per_km
+
+        #if Weather(self.main) == gameoverweather:
+            #co2 budjetti nollaan
+
+        #else:
+          #  consumption = config.co2_per_flight + km * config.co2_per_km
+
         return consumption
