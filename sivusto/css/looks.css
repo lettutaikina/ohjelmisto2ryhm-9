@@ -261,6 +261,17 @@ dialog p {
   margin: 0 0 1rem 0;
 }
 
+.leaflet-popup-content {
+  text-align: center;
+}
+
+.leaflet-popup-content button {
+}
+
+.leaflet-popup-content p {
+  text-align: center;
+}
+
 @media screen and (min-width: 769px) {
   .box {
     font-size: initial;

@@ -11,17 +11,8 @@ class MiniGames:
         self.size = False
         self.distance = False
 
-        sql = f"SELECT ident FROM airport" \
-              f" WHERE type in ('small_airport', 'medium_airport', 'large_airport')"
-        sql += f" ORDER BY RAND() LIMIT 2;"
-        # print(sql)
-        cursor = config.conn.cursor()
-        cursor.execute(sql)
-        result = cursor.fetchall()
-        print(airport.type)
-        if len(result) > 0:
-            self.airport1 = Airport(result[0][0])
-            self.airport2 = Airport(result[1][0])
+        self.airport1 = self.minigame_airport(self.get_random_type())
+        self.airport2 = self.minigame_airport(self.get_random_type())
 
         if airport.type == "medium_airport":
             if random.randint(1, 100) <= config.medium_percentage:
@@ -30,6 +21,31 @@ class MiniGames:
         elif airport.type == "large_airport":
             if random.randint(1, 100) <= config.large_percentage:
                 self.choose_game(airport)
+
+    # get random type for airports
+    def get_random_type(self):
+        number = random.randint(1, 3)
+
+        if number == 1:
+            type_search = "small_airport"
+        elif number == 2:
+            type_search = "medium_airport"
+        else:
+            type_search = "large_airport"
+
+        return type_search
+
+    # get airport for minigames
+    def minigame_airport(self, type):
+        sql = f"SELECT ident FROM airport" \
+              f" WHERE type in ('{type}')"
+        sql += f" ORDER BY RAND() LIMIT 1;"
+        # print(sql)
+        cursor = config.conn.cursor()
+        cursor.execute(sql)
+        result = cursor.fetchall()
+        if len(result) > 0:
+            return Airport(result[0][0])
 
     # chooses minigame
     def choose_game(self, airport):

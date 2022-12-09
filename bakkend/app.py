@@ -28,7 +28,7 @@ config.conn = mysql.connector.connect(
          )
 
 def fly(id, dest, consumption=0, player=None, focus=None):
-    if id==0:
+    if id == "0":
         game = Game(0, dest, consumption, player)
     else:
         game = Game(id, dest, consumption)
@@ -57,8 +57,12 @@ def flyto():
 def newgame():
     args = request.args
     player = args.get("player")
-    dest = args.get("loc")
-    json_data = fly(0, dest, 0, player)
+    id = args.get("id")
+    if id != "0":
+        dest = ""
+    else:
+        dest = args.get("loc")
+    json_data = fly(id, dest, 0, player)
     return json_data
 
 # Added new app.route for fetching weather data for desired destinations (Max)
