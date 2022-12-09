@@ -139,13 +139,17 @@ async function minigame(airport) {
   if (minigameData.game === 2) {
   console.log("hello2")
   const dialog = document.getElementById("minigame2");
-  const h3_a1 = document.getElementById("airport1");
-  const h3_a2 = document.getElementById("airport2");
+  //const h3_a1 = document.getElementById("airport1");
+  //const h3_a2 = document.getElementById("airport2");
   const p = document.querySelector("#minigame2 p");
   const buttons = [];
-  buttons.push(document.getElementById("1"), document.getElementById("2"));
-  h3_a1.innerText = minigameData.airport1.name;
-  h3_a2.innerText = minigameData.airport2.name;
+  const button1 = document.getElementById("1");
+  const button2 = document.getElementById("2");
+  button1.innerText = minigameData.airport1.name;
+  button2.innerText = minigameData.airport2.name;
+  buttons.push(button1, button2);
+  //h3_a1.innerText = minigameData.airport1.name;
+  //h3_a2.innerText = minigameData.airport2.name;
   for (let button of buttons){
     console.log(minigameData.distance)
     button.addEventListener('click', function(){
