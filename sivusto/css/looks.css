@@ -283,6 +283,12 @@ dialog p {
   }
 }
 
+.minigames {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
 /* Leaflet icons */
 .blue-icon {
   background-color: #2474ff;
