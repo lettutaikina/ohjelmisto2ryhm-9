@@ -125,6 +125,7 @@ async function minigame(airport) {
     h3.innerHTML = minigameData.airport1.name;
     for (let button of buttons){
       button.addEventListener('click', function(){
+        // disable buttons here (Max)
         if (button.value === minigameData.size){
           reward = minigameData.game_reward;
           p.innerHTML = "Correct!";
@@ -135,6 +136,7 @@ async function minigame(airport) {
         setTimeout(closeDialog, 3000, dialog, p);
       });
     }
+    // showModal enables "esc" button to quit modal (Modal)
     dialog.showModal();
     }
 
