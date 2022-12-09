@@ -14,6 +14,13 @@ co2_per_km = 1
 #goal
 goal = 10
 
+#minigames
+large_percentage = 60
+medium_percentage = 20
+first_minigame_percentage = 40
+first_game_reward = 1000
+second_game_reward = 500
+
 
 # Internal shared variables -- do not modify
 conn = None
