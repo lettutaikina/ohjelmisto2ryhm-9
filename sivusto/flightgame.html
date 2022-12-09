@@ -83,17 +83,25 @@
     </div>
 </div>
 <div id="player-modal">
-    <form id="player-form">
-        <input id="player-input" type="text" placeholder="Player name" autocomplete="off">
-        <input id="id-input" type="text" placeholder="Id" autocomplete="off">
-        <input type="submit" value="Start game">
-    </form>
+        <form id="player-form">
+            <h3 id="new-game">New Game</h3>
+            <input id="player-input" type="text" placeholder="Player name">
+            <h3 id="continue-game">Continue Game</h3>
+            <input id="id-input" type="text" placeholder="Id">
+            <input id="submit" type="submit" value="Start game">
+        </form>
 </div>
 <dialog>
     <span>&#x2715;</span>
     <div class="guide-wrapper">
         <h2>Guide</h2>
-        <p>Hei maailma on tuhoutumassa ilmastonmuutoksen vuoksi, olet Finnairin paras lentäjä ja tehtäväsi on kerätä maailman mahti politikot päättämään viimeinkin lopullisista ilmaston pelastavista toimista, TÄMÄ ON VIIMEINEN HETKI TOIMIA! Lähdet Helsinki-Vantaa lentokentältä ja ilmastokokous on myös Helsingissä. Yritä saada mahdollisimman monta politikkoa lobattavaksi Helsinkiin ilmastokokoukseen. Aikaa ei ole hukattavaksi! Ilmasto ei kestä enempää päästöjä, joten sinulla on vain 10k kg co2 käytettävänäsi. Se kuinka monta politikkoa saat lennollesi vaikuttaa maailman kohtaloon, jokaisesta maasta saa yhden politikon. Onnea matkaan lentäjä! </p>
+        <p>Hei maailma on tuhoutumassa ilmastonmuutoksen vuoksi, olet Finnairin paras lentäjä ja tehtäväsi on kerätä
+            maailman mahti politikot päättämään viimeinkin lopullisista ilmaston pelastavista toimista, TÄMÄ ON
+            VIIMEINEN HETKI TOIMIA! Lähdet Helsinki-Vantaa lentokentältä ja ilmastokokous on myös Helsingissä. Yritä
+            saada mahdollisimman monta politikkoa lobattavaksi Helsinkiin ilmastokokoukseen. Aikaa ei ole hukattavaksi!
+            Ilmasto ei kestä enempää päästöjä, joten sinulla on vain 10k kg co2 käytettävänäsi. Se kuinka monta
+            politikkoa saat lennollesi vaikuttaa maailman kohtaloon, jokaisesta maasta saa yhden politikon. Onnea
+            matkaan lentäjä! </p>
     </div>
 </dialog>
 <dialog id="minigame1">
@@ -109,7 +117,8 @@
 <dialog id="minigame2">
     <div class="minigames">
         <h2>Guess the shortest distance to your position</h2>
-        <h3 id="airport1"></h3> <h3 id="airport2"></h3>
+        <h3 id="airport1"></h3>
+        <h3 id="airport2"></h3>
         <button class="button" id="1" value="1"></button>
         <button class="button" id="2" value="2"></button>
         <p></p>

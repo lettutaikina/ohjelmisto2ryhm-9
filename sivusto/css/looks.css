@@ -175,7 +175,7 @@ main {
 #player-modal {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   z-index: 9999;
@@ -186,10 +186,27 @@ main {
   width: 50%;
   margin: 4rem auto;
   flex-direction: column;
+  background-color: white;
+  gap: 1em;
+  border: white 1rem solid;
+  border-radius: 4px;
+}
+
+#player-form h3 {
+  text-align: center;
+  margin: 0;
+}
+
+#continue-game {
+  padding-top: 1em;
 }
 
 #player-form input {
   padding: 1rem;
+}
+
+#submit {
+  margin-top: 1.5rem;
 }
 
 .done {
