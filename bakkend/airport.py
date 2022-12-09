@@ -73,12 +73,11 @@ class Airport:
         #consumption = config.co2_per_flight + km * config.co2_per_km
         #print(f'Säääääääääääääääääääääää   {self.weather.main =="Clouds"}')
 
-        if self.weather.main == "Mist" or "Rain" or 'Drizzle' or 'Snow' or 'Thunderstorm':
-
+        if self.weather.main == "Rain" or 'Drizzle' or 'Snow' or 'Thunderstorm':
             consumption = config.co2_per_rain + (km*2) * config.co2_per_km
 
-        if self.weather.main == "Tornado" or "Ash":
-            consumption= config.co2_per_rain + km * config.co2_per_km*1000000
+        elif self.weather.main == "Tornado" or "Ash":
+            consumption = config.co2_per_rain + km * config.co2_per_km*1000000
 
         else:
             consumption = config.co2_per_flight + km * config.co2_per_km
