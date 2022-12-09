@@ -69,17 +69,36 @@ class Airport:
         return int(dist)
 
     def co2_consumption(self, km):
-
         #consumption = config.co2_per_flight + km * config.co2_per_km
-        #print(f'Säääääääääääääääääääääää   {self.weather.main =="Clouds"}')
+        #print(f'Säääääääääääääääääääääää   {self.weather.main}')
 
-        if self.weather.main == "Rain" or 'Drizzle' or 'Snow' or 'Thunderstorm':
-            consumption = config.co2_per_rain + (km*2) * config.co2_per_km
+        #crappyweather = ['Clouds', 'Fog', 'Snow', 'Rain', 'Drizzle', 'Thunderstorm']
+        gameoverweather = ['Tornado', 'Ash']
 
-        elif self.weather.main == "Tornado" or "Ash":
-            consumption = config.co2_per_rain + km * config.co2_per_km*1000000
+        #for i in crappyweather:
+            #if self.weather.main == i:
+                #print('1 iffi')
+                #print(self.weather.main)
+                #print(i)
+                #consumption = config.co2_per_rain + (km*2) * config.co2_per_km
+                #return consumption
 
-        else:
-            consumption = config.co2_per_flight + km * config.co2_per_km
+            #else:
+                #print('else')
+                #print(self.weather.main)
+                #print(i)
+                #consumption = config.co2_per_flight + km * config.co2_per_km
+                #return consumption
 
-        return consumption
+        #for i in gameoverweather:
+           #if self.weather.main == i:
+                #print('2 iffi)')
+                #consumption = config.co2_per_rain + km * config.co2_per_km*1000000
+                #break
+
+            #else:
+                #print('else')
+                #consumption = config.co2_per_flight + km * config.co2_per_km
+        consumption = config.co2_per_flight + km * config.co2_per_km
+
+
