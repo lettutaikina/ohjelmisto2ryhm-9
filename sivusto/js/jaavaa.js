@@ -4,9 +4,10 @@
 const map = L.map('map', { tap: false });
 L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
   attribution: 'Stamen',
-  maxZoom: 10,
+  minZoom: 4,
+  maxZoom: 7,
 }).addTo(map);
-map.setView([60, 24], 4);
+map.setView([60, 24], 5);
 
 // global variables
 const apiUrl = 'http://127.0.0.1:5000/';
