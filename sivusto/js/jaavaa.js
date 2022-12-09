@@ -51,6 +51,8 @@ function showWeather(airport) {
   document.querySelector('#airport-wind').innerHTML = `${airport.weather.wind.speed}m/s`;
 }
 
+// function to get weather icon
+
 async function showWeatherOnIcon(airport) {
 
         const iconData = await getData(`${apiUrl}icondata?icon=${airport.ident}`)
@@ -100,6 +102,43 @@ function updateGoals(goals) {
   }
 }
 
+// function to get minigame (Max)
+
+async function minigame(airport) {
+  const minigameData = await getData(`${apiUrl}minigame?loc=${airport.ident}`)
+  console.log(minigameData);
+  let reward = 0;
+
+  if (minigameData.game === 1) {
+    console.log("hello")
+    const dialog = document.getElementById("minigame1");
+    const h3 = document.querySelector("#minigame1 h3");
+    const p = document.querySelector("#minigame1 p");
+    const buttons = [];
+    buttons.push(document.getElementById("small"), document.getElementById("medium"), document.getElementById("large"));
+    h3.innerHTML = minigameData.airport1.name;
+    for (let button of buttons){
+      button.addEventListener('click', function(){
+        if (button.value === minigameData.size){
+          reward = minigameData.game_reward;
+          p.innerHTML = "Correct!";
+        } else {
+          p.innerHTML = "Incorrect!";
+        }
+        console.log(reward);
+        setTimeout(closeDialog, 3000, dialog, p);
+      });
+    }
+    dialog.showModal();
+    }
+
+  function closeDialog(dialog, p){
+    dialog.close();
+    p.innerHTML = "";
+    return reward;
+  }
+  }
+
 // function to check if game is over
 function checkGameOver(gamedata) {
   if (gamedata.goal) {
@@ -123,6 +162,7 @@ async function gameSetup(url) {
     console.log(gameData);
     updateStatus(gameData);
     if (!checkGameOver(gameData)) return;
+    await minigame(gameData.location[0]);
     for (let airport of gameData.location) {
       const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
       airportMarkers.addLayer(marker);
