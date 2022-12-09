@@ -109,6 +109,8 @@ async function minigame(airport) {
   console.log(minigameData);
   let reward = 0;
 
+
+  // minigame 1 function
   if (minigameData.game === 1) {
     console.log("hello")
     const dialog = document.getElementById("minigame1");
@@ -132,59 +134,33 @@ async function minigame(airport) {
     dialog.showModal();
     }
 
-  function closeDialog(dialog, p){
-    dialog.close();
-    p.innerHTML = "";
-    return reward;
-  }
-    if (minigameData.game === 1) {
-    console.log("hello")
-    const dialog = document.getElementById("minigame1");
-    const h3 = document.querySelector("#minigame1 h3");
-    const p = document.querySelector("#minigame1 p");
-    const buttons = [];
-    buttons.push(document.getElementById("small"), document.getElementById("medium"), document.getElementById("large"));
-    h3.innerHTML = minigameData.airport1.name;
-    for (let button of buttons){
-      button.addEventListener('click', function(){
-        if (button.value === minigameData.size){
-          reward = minigameData.game_reward;
-          p.innerHTML = "Correct!";
-        } else {
-          p.innerHTML = "Incorrect!";
-        }
-        console.log(reward);
-        setTimeout(closeDialog, 3000, dialog, p);
-      });
-    }
-    dialog.showModal();
-    }
 
-    if (minigameData.game === 2) {
-    console.log("hello2")
-    const dialog = document.getElementById("minigame2");
-    const h3_a1 = document.getElementById("airport1");
-    const h3_a2 = document.getElementById("airport2");
-    const p = document.querySelector("#minigame2 p");
-    const buttons = [];
-    buttons.push(document.getElementById("1"), document.getElementById("2"));
-    h3_a1.innerText = minigameData.airport1.name;
-    h3_a2.innerText = minigameData.airport2.name;
-    for (let button of buttons){
-      console.log(minigameData.distance)
-      button.addEventListener('click', function(){
-        if (parseInt(button.value) === minigameData.distance){
-          reward = minigameData.game_reward;
-          p.innerHTML = "Correct!";
-        } else {
-          p.innerHTML = "Incorrect!";
-        }
-        console.log(reward);
-        setTimeout(closeDialog, 3000, dialog, p);
-      });
-    }
-    dialog.showModal();
-    }
+  // minigame 2 function
+  if (minigameData.game === 2) {
+  console.log("hello2")
+  const dialog = document.getElementById("minigame2");
+  const h3_a1 = document.getElementById("airport1");
+  const h3_a2 = document.getElementById("airport2");
+  const p = document.querySelector("#minigame2 p");
+  const buttons = [];
+  buttons.push(document.getElementById("1"), document.getElementById("2"));
+  h3_a1.innerText = minigameData.airport1.name;
+  h3_a2.innerText = minigameData.airport2.name;
+  for (let button of buttons){
+    console.log(minigameData.distance)
+    button.addEventListener('click', function(){
+      if (parseInt(button.value) === minigameData.distance){
+        reward = minigameData.game_reward;
+        p.innerHTML = "Correct!";
+      } else {
+        p.innerHTML = "Incorrect!";
+      }
+      console.log(reward);
+      setTimeout(closeDialog, 3000, dialog, p);
+    });
+  }
+  dialog.showModal();
+  }
 
   function closeDialog(dialog, p){
     dialog.close();
