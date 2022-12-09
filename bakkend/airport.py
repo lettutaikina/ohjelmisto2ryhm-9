@@ -75,7 +75,7 @@ class Airport:
         #crappyweather =['Rain','Drizzle','Snow','Thunderstorm']
         #gameoverweather =['Tornado','Ash']
 
-        #if Weather(self, game) == crappyweather:
+        #if Weather(self.game) == crappyweather:
           #  consumption = config.co2_per_rain + km * config.co2_per_km
 
         #if Weather(self.main) == gameoverweather:
