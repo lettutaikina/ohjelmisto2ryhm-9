@@ -13,7 +13,7 @@ class Airport:
         # vältetään kauhiaa määrää hakuja
         if data is None:
             # find airport from DB
-            sql = "SELECT ident, name, latitude_deg, longitude_deg, iso_country FROM Airport WHERE ident='" + ident + "'"
+            sql = "SELECT ident, name, latitude_deg, longitude_deg, iso_country, type FROM Airport WHERE ident='" + ident + "'"
             print(sql)
             cur = config.conn.cursor()
             cur.execute(sql)
@@ -25,6 +25,7 @@ class Airport:
                 self.latitude = float(res[0][2])
                 self.longitude = float(res[0][3])
                 self.iso_country = res[0][4]
+                self.type = res[0][5]
         else:
             self.name = data['name']
             self.latitude = float(data['latitude'])
@@ -38,7 +39,7 @@ class Airport:
         sql += str(self.latitude - config.max_lat_dist) + " AND " + str(self.latitude + config.max_lat_dist)
         sql += " AND longitude_deg BETWEEN "
         sql += str(self.longitude - config.max_lon_dist) + " AND " + str(self.longitude + config.max_lon_dist)
-        sql += "and type = 'large_airport'"
+        sql += "and type in ('medium_airport', 'large_airport')"
         print(sql)
         cur = config.conn.cursor()
         cur.execute(sql)
