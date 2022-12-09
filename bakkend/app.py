@@ -9,6 +9,7 @@ from flask_cors import CORS
 import config
 from game import Game
 from airport import Airport
+from minigames import MiniGames
 
 load_dotenv()
 
@@ -73,6 +74,23 @@ def icondata():
     json_data = json.dumps(airport, default=lambda o: o.__dict__, indent=4)
     # print(json_data)
     return json_data
+
+# Fetches minigame (Max)
+
+# http://127.0.0.1:5000/minigame?loc=<ident>
+@app.route('/minigame')
+def minigame():
+    args = request.args
+    ident = args.get("loc")
+    airport = Airport(ident)
+    print(airport.type)
+    minigame = MiniGames(airport)
+    print("*** Called minigame endpoint ***")
+    json_data = json.dumps(minigame, default=lambda o: o.__dict__, indent=4)
+    print(json_data)
+    return json_data
+
+
 
 if __name__ == '__main__':
     app.run(use_reloader=True, host='127.0.0.1', port=5000)
