@@ -70,18 +70,17 @@ class Airport:
 
     def co2_consumption(self, km):
 
-        consumption = config.co2_per_flight + km * config.co2_per_km
-        #listan sisällä main säitä
-        #crappyweather =['Rain','Drizzle','Snow','Thunderstorm']
-        #gameoverweather =['Tornado','Ash']
+        #consumption = config.co2_per_flight + km * config.co2_per_km
+        #print(f'Säääääääääääääääääääääää   {self.weather.main =="Clouds"}')
 
-        #if Weather(self, game) == crappyweather:
-          #  consumption = config.co2_per_rain + km * config.co2_per_km
+        if self.weather.main == "Mist" or "Rain" or 'Drizzle' or 'Snow' or 'Thunderstorm':
 
-        #if Weather(self.main) == gameoverweather:
-            #co2 budjetti nollaan
+            consumption = config.co2_per_rain + (km*2) * config.co2_per_km
 
-        #else:
-          #  consumption = config.co2_per_flight + km * config.co2_per_km
+        if self.weather.main == "Tornado" or "Ash":
+            consumption= config.co2_per_rain + km * config.co2_per_km*1000000
+
+        else:
+            consumption = config.co2_per_flight + km * config.co2_per_km
 
         return consumption
