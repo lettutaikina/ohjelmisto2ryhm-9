@@ -229,19 +229,36 @@ main {
   border-right: var(--grey) 1px solid;
 }
 
+#minigame1[open] {
+    opacity: 1;
+    width: 30%;
+    height: 30%;
+}
+
+#minigame2[open] {
+    opacity: 1;
+    width: 30%;
+    height: 30%;
+}
+
+#minigame2 button {
+    width: 95%;
+    padding: 1rem;
+}
+
 dialog {
     position: fixed;
     opacity: 0;
     transition: all 0.5s ease-in-out;
     display: block;
-    width: 60%;
-    height: 70%;
     overflow: hidden;
     background-color: #fff;
 }
 
 dialog[open] {
     opacity: 1;
+    width: 60%;
+    height: 70%;
 }
 
 dialog::backdrop {

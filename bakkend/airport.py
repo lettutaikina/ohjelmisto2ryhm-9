@@ -73,7 +73,7 @@ class Airport:
         #print(f'Säääääääääääääääääääääää   {self.weather.main}')
 
         #crappyweather = ['Clouds', 'Fog', 'Snow', 'Rain', 'Drizzle', 'Thunderstorm']
-        gameoverweather = ['Tornado', 'Ash']
+        #gameoverweather = ['Tornado', 'Ash']
 
         #for i in crappyweather:
             #if self.weather.main == i:
@@ -100,5 +100,5 @@ class Airport:
                 #print('else')
                 #consumption = config.co2_per_flight + km * config.co2_per_km
         consumption = config.co2_per_flight + km * config.co2_per_km
-
+        return consumption
 
