@@ -131,9 +131,22 @@ async function minigame(airport) {
 
         buttons.push(document.getElementById("small"), document.getElementById("medium"), document.getElementById("large"));
         h3.innerHTML = minigameData.airport1.name;
+
+        small.disabled = false;
+        medium.disabled = false;
+        large.disabled = false;
+
+        // enables all 3 buttons
+
         for (let button of buttons) {
             button.addEventListener('click', function () {
-                // disable buttons here (Max)
+
+                small.disabled = true;
+                medium.disabled = true;
+                large.disabled = true;
+
+                // disables all 3 buttons after one has been pressed
+
                 if (button.value === minigameData.size) {
                     reward = minigameData.game_reward;
                     p.innerHTML = "Correct!";
@@ -163,11 +176,17 @@ async function minigame(airport) {
         button1.innerText = minigameData.airport1.name;
         button2.innerText = minigameData.airport2.name;
 
+        button1.disabled = false;
+        button2.disabled = false;
+
+        // enables the buttons when minigame starts
+
         window.onkeydown = function (e) {
             if (e.keyCode === 27) { // Key code for ESC key
                 e.preventDefault();
             }
         };
+
         //prevent esc from closing minigame
 
         buttons.push(button1, button2);
@@ -176,6 +195,12 @@ async function minigame(airport) {
         for (let button of buttons) {
             console.log(minigameData.distance)
             button.addEventListener('click', function () {
+
+                button1.disabled = true;
+                button2.disabled = true;
+
+                // disables both buttons after either one has been pressed
+
                 if (parseInt(button.value) === minigameData.distance) {
                     reward = minigameData.game_reward;
                     p.innerHTML = "Correct!";
