@@ -231,14 +231,22 @@ main {
 
 #minigame1[open] {
     opacity: 1;
-    width: 30%;
+    width: 35%;
     height: 30%;
+    background: floralwhite;
+}
+
+#minigame1 h3 {
+    width: auto;
+  padding: 1rem;
+  align-content: center;
 }
 
 #minigame2[open] {
     opacity: 1;
-    width: 30%;
+    width: 35%;
     height: 30%;
+  background: floralwhite;
 }
 
 #minigame2 button {
