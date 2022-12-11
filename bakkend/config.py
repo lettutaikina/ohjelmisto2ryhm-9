@@ -15,7 +15,7 @@ co2_per_km = 1
 goal = 10
 
 #minigames
-large_percentage = 60
+large_percentage = 80
 medium_percentage = 20
 first_minigame_percentage = 40
 first_game_reward = 250
