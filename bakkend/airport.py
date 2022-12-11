@@ -30,12 +30,12 @@ class Airport:
             self.name = data['name']
             self.latitude = float(data['latitude'])
             self.longitude = float(data['longitude'])
-
+            self.type = data['type']
 
     def find_nearby_airports(self):
         lista = []
         # haetaan kaikki tiedot kerralla
-        sql = "SELECT ident, name, latitude_deg, longitude_deg FROM Airport WHERE latitude_deg BETWEEN "
+        sql = "SELECT ident, name, latitude_deg, longitude_deg, type FROM Airport WHERE latitude_deg BETWEEN "
         sql += str(self.latitude - config.max_lat_dist) + " AND " + str(self.latitude + config.max_lat_dist)
         sql += " AND longitude_deg BETWEEN "
         sql += str(self.longitude - config.max_lon_dist) + " AND " + str(self.longitude + config.max_lon_dist)
@@ -48,7 +48,7 @@ class Airport:
             if r[0] != self.ident:
                 # lisätty data, jottei jokaista kenttää tartte hakea
                 # uudestaan konstruktorissa
-                data = {'name': r[1], 'latitude': r[2], 'longitude': r[3]}
+                data = {'name': r[1], 'latitude': r[2], 'longitude': r[3], 'type': r[4]}
                 print(data)
                 nearby_apt = Airport(r[0], False, data)
                 nearby_apt.distance = self.distanceTo(nearby_apt)
@@ -69,36 +69,35 @@ class Airport:
         return int(dist)
 
     def co2_consumption(self, km):
-        #consumption = config.co2_per_flight + km * config.co2_per_km
-        #print(f'Säääääääääääääääääääääää   {self.weather.main}')
+        # consumption = config.co2_per_flight + km * config.co2_per_km
+        # print(f'Säääääääääääääääääääääää   {self.weather.main}')
 
-        #crappyweather = ['Clouds', 'Fog', 'Snow', 'Rain', 'Drizzle', 'Thunderstorm']
-        #gameoverweather = ['Tornado', 'Ash']
+        # crappyweather = ['Clouds', 'Fog', 'Snow', 'Rain', 'Drizzle', 'Thunderstorm']
+        # gameoverweather = ['Tornado', 'Ash']
 
-        #for i in crappyweather:
-            #if self.weather.main == i:
-                #print('1 iffi')
-                #print(self.weather.main)
-                #print(i)
-                #consumption = config.co2_per_rain + (km*2) * config.co2_per_km
-                #return consumption
+        # for i in crappyweather:
+        # if self.weather.main == i:
+        # print('1 iffi')
+        # print(self.weather.main)
+        # print(i)
+        # consumption = config.co2_per_rain + (km*2) * config.co2_per_km
+        # return consumption
 
-            #else:
-                #print('else')
-                #print(self.weather.main)
-                #print(i)
-                #consumption = config.co2_per_flight + km * config.co2_per_km
-                #return consumption
+        # else:
+        # print('else')
+        # print(self.weather.main)
+        # print(i)
+        # consumption = config.co2_per_flight + km * config.co2_per_km
+        # return consumption
 
-        #for i in gameoverweather:
-           #if self.weather.main == i:
-                #print('2 iffi)')
-                #consumption = config.co2_per_rain + km * config.co2_per_km*1000000
-                #break
+        # for i in gameoverweather:
+        # if self.weather.main == i:
+        # print('2 iffi)')
+        # consumption = config.co2_per_rain + km * config.co2_per_km*1000000
+        # break
 
-            #else:
-                #print('else')
-                #consumption = config.co2_per_flight + km * config.co2_per_km
+        # else:
+        # print('else')
+        # consumption = config.co2_per_flight + km * config.co2_per_km
         consumption = config.co2_per_flight + km * config.co2_per_km
         return consumption
-
