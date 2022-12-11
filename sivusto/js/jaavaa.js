@@ -19,6 +19,14 @@ let reward = 0;
 // icons
 const blueIcon = L.divIcon({className: 'blue-icon'});
 const greenIcon = L.divIcon({className: 'green-icon'});
+const largeIcon = L.icon({
+    iconUrl: 'https://cdn.discordapp.com/attachments/1021369659515228260/1051585974079074426/Large_airport.png',
+    iconSize: [30, 30],
+});
+const mediumIcon = L.icon({
+    iconUrl: 'https://cdn.discordapp.com/attachments/1021369659515228260/1051592028959551588/Medium_airport.png',
+    iconSize: [27, 27]
+});
 
 // form for player name
 document.querySelector('#player-form').addEventListener('submit', function (evt) {
@@ -254,7 +262,11 @@ async function gameSetup(url) {
                 marker.openPopup();
                 marker.setIcon(greenIcon);
             } else {
-                marker.setIcon(blueIcon);
+                if (airport.type === 'medium_airport'){
+                    marker.setIcon(mediumIcon);
+                } else {
+                    marker.setIcon(largeIcon);
+                }
                 const popupContent = document.createElement('div');
                 const h4 = document.createElement('h4');
                 h4.innerText = airport.name;
