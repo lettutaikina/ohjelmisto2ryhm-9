@@ -18,8 +18,8 @@ goal = 10
 large_percentage = 60
 medium_percentage = 20
 first_minigame_percentage = 40
-first_game_reward = 1000
-second_game_reward = 500
+first_game_reward = 250
+second_game_reward = 100
 
 
 # Internal shared variables -- do not modify
