@@ -87,11 +87,10 @@ def minigame():
     args = request.args
     ident = args.get("loc")
     airport = Airport(ident)
-    print(airport.type)
     minigame = MiniGames(airport)
     print("*** Called minigame endpoint ***")
     json_data = json.dumps(minigame, default=lambda o: o.__dict__, indent=4)
-    print(json_data)
+    #print(json_data)
     return json_data
 
 
