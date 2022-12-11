@@ -14,6 +14,7 @@ const apiUrl = 'http://127.0.0.1:5000/';
 const startLoc = 'EFHK';
 const globalGoals = [];
 const airportMarkers = L.featureGroup().addTo(map);
+let reward = 0;
 
 // icons
 const blueIcon = L.divIcon({className: 'blue-icon'});
@@ -111,7 +112,7 @@ function updateGoals(goals) {
 async function minigame(airport) {
     const minigameData = await getData(`${apiUrl}minigame?loc=${airport.ident}`)
     console.log(minigameData);
-    let reward = 0;
+    reward = 0;
 
 
     // minigame 1 function
@@ -153,8 +154,6 @@ async function minigame(airport) {
                 } else {
                     p.innerHTML = "Incorrect!";
                 }
-                console.log(reward);
-
                 setTimeout(closeDialog, 3000, dialog, p);
             });
         }
@@ -207,7 +206,6 @@ async function minigame(airport) {
                 } else {
                     p.innerHTML = "Incorrect!";
                 }
-                console.log(reward);
                 setTimeout(closeDialog, 3000, dialog, p);
             });
         }
@@ -215,9 +213,9 @@ async function minigame(airport) {
     }
 
     function closeDialog(dialog, p) {
+        console.log(reward);
         dialog.close();
         p.innerHTML = "";
-        return reward;
     }
 }
 
@@ -283,7 +281,8 @@ async function gameSetup(url) {
                 marker.bindPopup(popupContent);
 
                 goButton.addEventListener('click', function () {
-                    gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.co2_consumption}`);
+                    console.log("minigame " + reward);
+                    gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.co2_consumption - reward}`);
                 });
             }
         }
