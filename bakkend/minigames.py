@@ -10,6 +10,7 @@ class MiniGames:
         self.game = False
         self.size = False
         self.distance = False
+        self.no_reward = config.no_reward
 
         self.airport1 = self.minigame_airport(self.get_random_type())
         self.airport2 = self.minigame_airport(self.get_random_type())
