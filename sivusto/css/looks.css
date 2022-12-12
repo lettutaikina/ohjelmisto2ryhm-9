@@ -232,6 +232,10 @@ main {
   border-right: var(--grey) 1px solid;
 }
 
+#minigame1, #minigame2{
+  border-radius: 6px;
+}
+
 #minigame1[open] {
     opacity: 1;
     width: 35%;
@@ -292,6 +296,10 @@ dialog span {
     cursor: pointer;
     color: #000;
     filter: drop-shadow(2px 2px 2px #fff);
+}
+
+#guideDialog, #storyDialog {
+  border-radius: 6px;
 }
 
 .guide-wrapper {
