@@ -20,6 +20,7 @@ medium_percentage = 20
 first_minigame_percentage = 40
 first_game_reward = 250
 second_game_reward = 100
+no_reward = 0
 
 
 # Internal shared variables -- do not modify
