@@ -245,7 +245,7 @@ transform: scale(0.5)
     opacity: 1;
     width: 35%;
     height: 30%;
-    background: floralwhite;
+    background: var(--green);
 }
 
 #minigame1 h3 {
@@ -258,7 +258,7 @@ transform: scale(0.5)
     opacity: 1;
     width: 35%;
     height: 30%;
-  background: floralwhite;
+  background: var(--green);
 }
 
 #minigame2 button {
