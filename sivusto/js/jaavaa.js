@@ -249,7 +249,7 @@ async function gameSetup(url) {
         console.log(gameData);
         updateStatus(gameData);
         if (!checkGameOver(gameData)) return;
-        await minigame(gameData.location[0]);
+        if (gameData.location[0].ident !== startLoc) await minigame(gameData.location[0]);
         for (let airport of gameData.location) {
             const marker = L.marker([airport.latitude, airport.longitude]).addTo(map);
             airportMarkers.addLayer(marker);
