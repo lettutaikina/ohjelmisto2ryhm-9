@@ -120,7 +120,7 @@ function updateGoals(goals) {
 async function minigame(airport) {
     const minigameData = await getData(`${apiUrl}minigame?loc=${airport.ident}`)
     console.log(minigameData);
-    reward = 0;
+    reward = minigameData.no_reward;
 
 
     // minigame 1 function
@@ -158,7 +158,7 @@ async function minigame(airport) {
 
                 if (button.value === minigameData.size) {
                     reward = minigameData.game_reward;
-                    p.innerHTML = "Correct!";
+                    p.innerHTML = `Correct! Budget: +${reward}`;
                 } else {
                     p.innerHTML = "Incorrect!";
                 }
@@ -200,7 +200,6 @@ async function minigame(airport) {
         //h3_a1.innerText = minigameData.airport1.name;
         //h3_a2.innerText = minigameData.airport2.name;
         for (let button of buttons) {
-            console.log(minigameData.distance)
             button.addEventListener('click', function () {
 
                 button1.disabled = true;
@@ -210,7 +209,7 @@ async function minigame(airport) {
 
                 if (parseInt(button.value) === minigameData.distance) {
                     reward = minigameData.game_reward;
-                    p.innerHTML = "Correct!";
+                    p.innerHTML = `Correct! Budget: +${reward}`;
                 } else {
                     p.innerHTML = "Incorrect!";
                 }
