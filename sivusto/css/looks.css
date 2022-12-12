@@ -236,7 +236,7 @@ main {
   border-right: var(--grey) 1px solid;
 }
 
-#minigame1, #minigame2{
+#minigame1, #minigame2, #won, #lost{
   border-radius: 6px;
 }
 
