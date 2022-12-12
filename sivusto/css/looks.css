@@ -55,6 +55,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: var(--white);
   scroll-behavior: smooth;
+  background: url("../kuvat/Polygon Luminary.svg");
 }
 
 .container {
