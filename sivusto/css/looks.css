@@ -1,9 +1,10 @@
 /* variables */
 :root {
   --black: rgb(23, 23, 23);
-  --white: rgb(248, 246, 246);
+  --white: rgb(255, 255, 255);
   --grey: rgb(128, 128, 128);
   --dark-grey: rgb(57, 57, 57);
+  --purple: rgb(100, 42, 115);
 }
 
 /* utilites */
@@ -70,7 +71,7 @@ body {
 
 .page-header,
 .page-footer {
-  background-color: var(--black);
+  background-color: var(--purple);
   color: var(--white);
   position: relative;
   margin: 0;
