@@ -305,27 +305,37 @@ async function gameSetup(url) {
 
 // Open modal to show guide when clicked
 const guide = document.querySelector('#guide');
+const story = document.querySelector('#story');
 
-const dialog = document.querySelector('dialog');
+const guideDialog = document.getElementById('guideDialog');
+const storyDialog = document.getElementById('storyDialog');
 
-const span = dialog.querySelector('span');
+const guideSpan = guideDialog.querySelector('span');
+const storySpan = storyDialog.querySelector('span');
 
-guide.addEventListener('click', openModal);
+//guide.addEventListener('click', openModal);
+//story.addEventListener('click', openModal);
 
-function openModal() {
+function openModal(dialog) {
     dialog.showModal();
 }
 
 window.onclick = function (event) {
-    if (event.target === guide) {
-        openModal();
+    if (event.target === story) {
+        openModal(storyDialog);
     }
-    if (event.target === dialog || event.target === span) {
-        hideModal();
+    if (event.target === guide) {
+        openModal(guideDialog);
+    }
+    if (event.target === guideDialog || event.target === guideSpan) {
+        hideModal(guideDialog);
+    }
+    if (event.target === storyDialog || event.target === storySpan) {
+        hideModal(storyDialog);
     }
 };
 
-function hideModal() {
+function hideModal(dialog) {
     dialog.close();
 }
 

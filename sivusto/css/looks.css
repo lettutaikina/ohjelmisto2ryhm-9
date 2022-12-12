@@ -289,6 +289,14 @@ dialog span {
 .guide-wrapper {
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+
+.guide-wrapper img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
 }
 
 dialog h2 {
