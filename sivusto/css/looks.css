@@ -200,6 +200,10 @@ main {
   text-align: center;
   margin: 0;
 }
+#player-form #violettikone {
+
+transform: scale(0.5)
+}
 
 #continue-game {
   padding-top: 1em;
