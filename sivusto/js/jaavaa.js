@@ -89,7 +89,7 @@ async function showWeatherOnIcon(airport) {
 async function getDestinationConsumption(destination, location) {
 
     const consumptionData = await getData(`${apiUrl}co2consumption?dest=${destination.ident}&loc=${location.ident}`)
-    console.log(consumptionData);
+    console.log("co2 consumption: " + consumptionData);
     return consumptionData;
 }
 
