@@ -21,11 +21,15 @@ const blueIcon = L.divIcon({className: 'blue-icon'});
 const greenIcon = L.divIcon({className: 'green-icon'});
 const largeIcon = L.icon({
     iconUrl: 'https://cdn.discordapp.com/attachments/1021369659515228260/1051585974079074426/Large_airport.png',
-    iconSize: [30, 30],
+    iconSize: [30, 30]
 });
 const mediumIcon = L.icon({
     iconUrl: 'https://cdn.discordapp.com/attachments/1021369659515228260/1051592028959551588/Medium_airport.png',
     iconSize: [27, 27]
+});
+const startIcon = L.icon({
+   iconUrl: 'https://cdn.discordapp.com/attachments/1021369659515228260/1051834493645897769/Start.location.png',
+   iconSize: [30, 30]
 });
 
 // form for player name
@@ -263,6 +267,8 @@ async function gameSetup(url) {
             } else {
                 if (airport.type === 'medium_airport'){
                     marker.setIcon(mediumIcon);
+                } else if (airport.ident === startLoc){
+                   marker.setIcon(startIcon) ;
                 } else {
                     marker.setIcon(largeIcon);
                 }
