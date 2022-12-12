@@ -234,11 +234,13 @@ async function minigame(airport) {
 // function to check if game is over
 function checkGameOver(gamedata) {
     if (gamedata.goal) {
-        alert(`You've won!`);
+        const dialog=document.getElementById('won');
+        dialog.showModal();
         return false;
     }
     if (gamedata.status.co2.budget <= 0) {
-        alert(`Game Over. ${globalGoals.length} goals reached.`);
+        const dialog=document.getElementById('lost');
+        dialog.showModal();
         return false;
     }
     return true;
