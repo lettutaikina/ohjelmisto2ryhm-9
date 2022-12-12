@@ -93,6 +93,21 @@ def minigame():
     #print(json_data)
     return json_data
 
+# http://127.0.0.1:5000/co2consumption?dest=<ident>&loc=<ident>
+@app.route('/co2consumption')
+def co2consumption():
+    args = request.args
+    destination = args.get("dest")
+    location = args.get("loc")
+    airport_dest = Airport(destination)
+    airport_loc = Airport(location)
+    airport_dest.fetchWeather(airport_dest)
+    co2consumed = airport_dest.co2_consumption(airport_dest.distanceTo(airport_loc))
+    print("*** Called consumption endpoint ***")
+    json_data = json.dumps(co2consumed, default=lambda o: o.__dict__, indent=4)
+    print(json_data)
+    return json_data
+
 
 
 if __name__ == '__main__':

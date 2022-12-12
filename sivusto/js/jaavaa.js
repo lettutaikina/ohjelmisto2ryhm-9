@@ -86,6 +86,13 @@ async function showWeatherOnIcon(airport) {
     return figure;
 }
 
+async function getDestinationConsumption(destination, location) {
+
+    const consumptionData = await getData(`${apiUrl}co2consumption?dest=${destination.ident}&loc=${location.ident}`)
+    console.log(consumptionData);
+    return consumptionData;
+}
+
 // function to check if any goals have been reached
 function checkGoals(meets_goals) {
     if (meets_goals.length > 0) {
@@ -292,6 +299,7 @@ async function gameSetup(url) {
                 async function weather() {
                     this.removeEventListener('click', weather);
                     popupContent.append(await showWeatherOnIcon(airport));
+                    airport.co2_consumption = await getDestinationConsumption(airport, gameData.location[0]);
                 }
 
                 marker.addEventListener('click', weather);
