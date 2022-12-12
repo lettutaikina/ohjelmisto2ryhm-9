@@ -240,7 +240,7 @@ main {
     opacity: 1;
     width: 35%;
     height: 30%;
-    background: floralwhite;
+    background: var(--green);
 }
 
 #minigame1 h3 {
@@ -253,7 +253,7 @@ main {
     opacity: 1;
     width: 35%;
     height: 30%;
-  background: floralwhite;
+  background: var(--green);
 }
 
 #minigame2 button {
