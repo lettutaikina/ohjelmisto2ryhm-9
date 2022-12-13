@@ -354,6 +354,17 @@ dialog span {
   transform: translateY(-10px) translateX(-35px);
 }
 
+.guide-wrapper li:nth-child(6):before {
+  content: "";
+  display: block;
+  background: url("../kuvat/Start.location.png") no-repeat;
+  background-size: 40px 40px;
+  width: 40px;
+  height: 40px;
+  float: left;
+  transform: translateY(-10px) translateX(-35px);
+}
+
 .guide-wrapper img {
   display: block;
   margin-left: auto;
