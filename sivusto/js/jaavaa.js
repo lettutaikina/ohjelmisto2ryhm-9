@@ -1,5 +1,10 @@
 'use strict';
 /* 1. show map using Leaflet library. (L comes from the Leaflet library) */
+window.addEventListener("DOMContentLoaded", event => {
+    const bgm = document.querySelector("#bgm");
+    bgm.volume = 0.1;
+    bgm.play();
+});
 
 const map = L.map('map', {tap: false});
 L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', {
@@ -248,6 +253,11 @@ function checkGameOver(gamedata) {
     if (gamedata.status.co2.budget <= 0) {
         const dialog=document.getElementById('lost');
         dialog.showModal();
+        bgm.volume = 0;
+        const wbgm = document.querySelector("#winningbgm")
+        wbgm.volume = 0.1;
+        wbgm.play();
+
         return false;
     }
     return true;
@@ -361,8 +371,4 @@ document.querySelector('.goal').addEventListener('click', function (evt) {
     evt.currentTarget.classList.add('hide');
 });
 
-window.addEventListener("DOMContentLoaded", event => {
-    const audio = document.querySelector("audio");
-    audio.volume = 0.1;
-    audio.play();
-});
+
