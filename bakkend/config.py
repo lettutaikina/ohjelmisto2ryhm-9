@@ -12,7 +12,7 @@ co2_per_rain = 500
 co2_per_km = 1
 
 #goal
-goal = 1
+goal = 10
 
 #minigames
 large_percentage = 80
