@@ -44,8 +44,8 @@ document.querySelector('#player-form').addEventListener('submit', function (evt)
     const playerName = document.querySelector('#player-input').value;
     const id = document.querySelector('#id-input').value ? document.querySelector('#id-input').value : 0;
     document.querySelector('#player-modal').classList.add('hide');
-    console.log(id)
-    console.log(typeof id)
+    //console.log(id)
+    //console.log(typeof id)
     gameSetup(`${apiUrl}newgame?player=${playerName}&loc=${startLoc}&id=${id}`);
 });
 
@@ -204,7 +204,7 @@ async function minigame(airport) {
     }
 
     function closeDialog(dialog, p) {
-        console.log(reward);
+        //console.log(reward);
         dialog.close();
         p.innerHTML = "";
     }
@@ -289,7 +289,7 @@ async function gameSetup(url) {
                 marker.bindPopup(popupContent);
 
                 goButton.addEventListener('click', function () {
-                    console.log("minigame " + reward);
+                    //console.log("minigame " + reward);
                     gameSetup(`${apiUrl}flyto?game=${gameData.status.id}&dest=${airport.ident}&consumption=${airport.co2_consumption - reward}`);
                 });
             }
