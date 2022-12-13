@@ -17,7 +17,6 @@ map.setView([60, 24], 5);
 // global variables
 const apiUrl = 'http://127.0.0.1:5000/';
 const startLoc = 'EFHK';
-const globalGoals = [];
 const airportMarkers = L.featureGroup().addTo(map);
 let reward = 0;
 
