@@ -4,8 +4,9 @@
   --white: rgb(255, 255, 255);
   --grey: rgb(128, 128, 128);
   --dark-grey: rgb(57, 57, 57);
-  --purple: rgb(92, 52, 97);
+  --purple: rgb(73, 41, 77);
   --green: rgba(244, 253, 248);
+  --magenta: rgb(149, 115, 153)
 }
 
 /* utilites */
@@ -79,7 +80,7 @@ body {
 
 .page-header,
 .page-footer {
-  background-color: var(--purple);
+  background-image: linear-gradient(var(--purple), var(--magenta));
   color: var(--green);
   position: relative;
   margin: 0;
