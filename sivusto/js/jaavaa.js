@@ -98,39 +98,6 @@ async function getDestinationConsumption(destination, location) {
     return consumptionData;
 }
 
-// function to check if any goals have been reached
-function checkGoals(meets_goals) {
-    if (meets_goals.length > 0) {
-        for (let goal of meets_goals) {
-            if (!globalGoals.includes(goal)) {
-                document.querySelector('.goal').classList.remove('hide');
-                location.href = '#goals';
-            }
-        }
-    }
-}
-
-// function to update goal data and goal table in UI
-function updateGoals(goals) {
-    document.querySelector('#goals').innerHTML = '';
-    for (let goal of goals) {
-        const li = document.createElement('li');
-        const figure = document.createElement('figure');
-        const img = document.createElement('img');
-        const figcaption = document.createElement('figcaption');
-        img.src = goal.icon;
-        img.alt = `goal name: ${goal.name}`;
-        figcaption.innerHTML = goal.description;
-        figure.append(img);
-        figure.append(figcaption);
-        li.append(figure);
-        if (goal.reached) {
-            li.classList.add('done');
-            globalGoals.includes(goal.goalid) || globalGoals.push(goal.goalid);
-        }
-        document.querySelector('#goals').append(li);
-    }
-}
 
 // function to get minigame (Max)
 
@@ -142,7 +109,7 @@ async function minigame(airport) {
 
     // minigame 1 function
     if (minigameData.game === 1) {
-        console.log("hello")
+        //console.log("hello")
         const dialog = document.getElementById("minigame1");
         const h3 = document.querySelector("#minigame1 h3");
         const p = document.querySelector("#minigame1 p");
@@ -189,7 +156,7 @@ async function minigame(airport) {
 
     // minigame 2 function
     if (minigameData.game === 2) {
-        console.log("hello2")
+        //console.log("hello2")
         const dialog = document.getElementById("minigame2");
         //const h3_a1 = document.getElementById("airport1");
         //const h3_a2 = document.getElementById("airport2");
@@ -271,7 +238,6 @@ function checkGameOver(gamedata) {
 // this is the main function that creates the game and calls the other functions
 async function gameSetup(url) {
     try {
-        document.querySelector('.goal').classList.add('hide');
         airportMarkers.clearLayers();
         const gameData = await getData(url);
         console.log(gameData);
@@ -328,7 +294,6 @@ async function gameSetup(url) {
                 });
             }
         }
-        updateGoals(gameData.goals);
     } catch (error) {
         console.log(error);
     }
@@ -370,9 +335,5 @@ function hideModal(dialog) {
     dialog.close();
 }
 
-// event listener to hide goal splash
-document.querySelector('.goal').addEventListener('click', function (evt) {
-    evt.currentTarget.classList.add('hide');
-});
 
 
