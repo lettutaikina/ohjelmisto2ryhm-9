@@ -6,13 +6,13 @@ max_lon_dist = max_distance/50
 
 #budget etc. for fuel
 co2_initial = 0
-co2_budget = 1
+co2_budget = 5000
 co2_per_flight = 50
 co2_per_rain = 500
 co2_per_km = 1
 
 #goal
-goal = 10
+goal = 1
 
 #minigames
 large_percentage = 80

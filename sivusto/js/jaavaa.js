@@ -248,6 +248,10 @@ function checkGameOver(gamedata) {
     if (gamedata.goal) {
         const dialog=document.getElementById('won');
         dialog.showModal();
+        bgm.volume = 0;
+        const lbgm = document.querySelector("#losingbgm")
+        lbgm.volume = 0.1;
+        lbgm.play();
         return false;
     }
     if (gamedata.status.co2.budget <= 0) {
