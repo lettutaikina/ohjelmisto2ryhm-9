@@ -22,8 +22,8 @@ const airportMarkers = L.featureGroup().addTo(map);
 let reward = 0;
 
 // icons
-const blueIcon = L.divIcon({className: 'blue-icon'});
-const greenIcon = L.divIcon({className: 'green-icon'});
+// const blueIcon = L.divIcon({className: 'blue-icon'});
+// const greenIcon = L.divIcon({className: 'green-icon'});
 const redIcon = L.divIcon({className: 'red-icon'});
 const largeIcon = L.icon({
     iconUrl: 'https://cdn.discordapp.com/attachments/1021369659515228260/1051585974079074426/Large_airport.png',
