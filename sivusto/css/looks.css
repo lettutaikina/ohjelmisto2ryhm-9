@@ -249,7 +249,7 @@ main {
 #minigame1[open] {
     opacity: 1;
     width: 35%;
-    height: 30%;
+    height: 25%;
     background: var(--green);
 }
 
@@ -262,7 +262,7 @@ main {
 #minigame2[open] {
     opacity: 1;
     width: 35%;
-    height: 30%;
+    height: 25%;
   background: var(--green);
 }
 
