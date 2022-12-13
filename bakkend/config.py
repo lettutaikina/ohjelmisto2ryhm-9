@@ -6,7 +6,7 @@ max_lon_dist = max_distance/50
 
 #budget etc. for fuel
 co2_initial = 0
-co2_budget = 7500
+co2_budget = 6000
 co2_per_flight = 50
 co2_per_rain = 500
 co2_per_km = 1

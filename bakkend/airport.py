@@ -73,7 +73,7 @@ class Airport:
         print(f'Sääääääääääää on oikeesti   {self.weather.main}')
 
         crappyweather = ['Fog', 'Snow', 'Rain', 'Drizzle', 'Thunderstorm']
-        gameoverweather = ['Clouds', 'Tornado', 'Ash']
+        gameoverweather = ['Tornado', 'Ash']
 
         for i in crappyweather:
             if self.weather.main == i:
