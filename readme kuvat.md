@@ -1,0 +1,3 @@
+﻿![enter image description here](https://cdn.discordapp.com/attachments/1021369659515228260/1053358837119332424/image.png)
+![enter image description here](https://cdn.discordapp.com/attachments/1021369659515228260/1053359271796019311/image.png)![enter image description here](https://cdn.discordapp.com/attachments/1021369659515228260/1053359875629002812/image.png)![enter image description here](https://cdn.discordapp.com/attachments/1021369659515228260/1053360432024391770/image.png)![enter image description here](https://cdn.discordapp.com/attachments/1021369659515228260/1053361342721040384/image.png)![enter image description here](https://cdn.discordapp.com/attachments/1021369659515228260/1053362931858952192/image.png)
+
